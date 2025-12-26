@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jamie Collins | Creative Designer</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Outfit:wght@300;400;500;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        display: ['Fredoka', 'sans-serif'],
+                        hand: ['Permanent Marker', 'cursive'],
+                    },
+                    colors: {
+                        'jamie-bg': '#FFFDF7',
+                        'jamie-dark': '#2D2D2D',
+                        'jamie-yellow': '#FFD93D',
+                        'jamie-coral': '#FF8484',
+                        'jamie-teal': '#4DCCBD',
+                        'jamie-lavender': '#A084E8',
+                    },
+                    boxShadow: {
+                        'hard': '4px 4px 0px 0px rgba(0,0,0,1)',
+                        'hard-hover': '8px 8px 0px 0px rgba(0,0,0,1)',
+                        'card': '5px 5px 0px 0px rgba(45, 45, 45, 0.1)',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 6s ease-in-out 3s infinite',
+                        'wiggle': 'wiggle 1s ease-in-out infinite',
+                        'spin-slow': 'spin 12s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        wiggle: {
+                            '0%, 100%': { transform: 'rotate(-3deg)' },
+                            '50%': { transform: 'rotate(3deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #FFFDF7;
+            background-image: radial-gradient(#E5E5E5 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* Custom Blob Shape for Profile */
+        .blob-shape {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            transition: all 1s ease-in-out;
+        }
+        .blob-shape:hover {
+            border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+        }
+
+        /* Tape effect */
+        .tape {
+            background-color: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            backdrop-filter: blur(2px);
+            transform: rotate(-15deg);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FFFDF7;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2D2D2D;
+            border-radius: 6px;
+            border: 3px solid #FFFDF7;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF8484;
+        }
+        
+        .rotate-card:nth-child(odd) { transform: rotate(-1deg); }
+        .rotate-card:nth-child(even) { transform: rotate(1deg); }
+        .rotate-card:hover { transform: rotate(0deg) scale(1.02); z-index: 10; }
+    </style>
+</head>
+<body class="font-sans text-jamie-dark overflow-x-hidden selection:bg-jamie-yellow selection:text-jamie-dark">
+
+    <!-- Floating Navigation -->
+    <nav class="fixed top-6 left-1/2 transform -translate-x-1/2 z-50">
+        <div class="bg-white/90 backdrop-blur-sm border-2 border-jamie-dark px-2 py-2 rounded-full shadow-hard flex items-center space-x-1 sm:space-x-2">
+            <a href="#home" class="px-4 py-2 rounded-full font-display font-bold hover:bg-jamie-yellow transition-colors text-sm sm:text-base">Home</a>
+            <a href="#work" class="px-4 py-2 rounded-full font-display font-bold hover:bg-jamie-teal transition-colors text-sm sm:text-base">Work</a>
+            <a href="#about" class="px-4 py-2 rounded-full font-display font-bold hover:bg-jamie-coral transition-colors text-sm sm:text-base">About</a>
+            <a href="#contact" class="px-4 py-2 rounded-full font-display font-bold hover:bg-jamie-lavender transition-colors text-sm sm:text-base">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen pt-32 pb-20 px-4 sm:px-6 relative overflow-hidden flex items-center">
+        <!-- Background Blobs -->
+        <div class="absolute top-20 right-[-10%] w-96 h-96 bg-jamie-yellow/30 rounded-full blur-3xl animate-float -z-10"></div>
+        <div class="absolute bottom-20 left-[-10%] w-80 h-80 bg-jamie-teal/30 rounded-full blur-3xl animate-float-delayed -z-10"></div>
+
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Text Content -->
+            <div class="lg:col-span-7 relative z-10 order-2 lg:order-1 text-center lg:text-left">
+                <!-- Decorative Element -->
+                <div class="hidden lg:block absolute -top-12 -left-8 transform -rotate-12">
+                    <span class="inline-block px-4 py-2 bg-jamie-lavender border-2 border-jamie-dark text-white font-hand text-lg shadow-hard rotate-[-6deg]">Hi there! 👋</span>
+                </div>
+
+                <h1 class="font-display font-bold text-6xl sm:text-7xl lg:text-8xl leading-[0.9] mb-8 tracking-tight">
+                    Design That <br>
+                    <span class="relative inline-block text-jamie-coral">
+                        Plays
+                        <svg class="absolute w-full h-4 -bottom-1 left-0 text-jamie-dark" viewBox="0 0 100 10" preserveAspectRatio="none">
+                            <path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="3" fill="none" />
+                        </svg>
+                    </span>, Not <br>
+                    Just <span class="text-jamie-teal">Sits</span>.
+                </h1>
+                
+                <p class="text-xl sm:text-2xl text-gray-600 mb-10 max-w-lg mx-auto lg:mx-0 font-medium">
+                    Posters, illustrations, and branding with <span class="bg-jamie-yellow px-2 inline-block transform -rotate-2 border border-jamie-dark rounded-md">personality</span>.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <a href="#work" class="group relative inline-block px-8 py-4 bg-jamie-dark text-white font-display font-bold text-lg rounded-full border-2 border-jamie-dark shadow-hard transition-transform hover:-translate-y-1 hover:shadow-hard-hover">
+                        See My Work
+                        <i class="ph-bold ph-arrow-right inline-block ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="#contact" class="inline-block px-8 py-4 bg-white text-jamie-dark font-display font-bold text-lg rounded-full border-2 border-jamie-dark shadow-hard transition-transform hover:-translate-y-1 hover:shadow-hard-hover hover:bg-jamie-bg">
+                        Say Hello!
+                    </a>
+                </div>
+            </div>
+
+            <!-- Image Content -->
+            <div class="lg:col-span-5 relative order-1 lg:order-2 flex justify-center">
+                <!-- Sticker elements -->
+                <div class="absolute top-0 right-10 w-16 h-16 bg-jamie-yellow rounded-full flex items-center justify-center border-2 border-jamie-dark z-20 animate-bounce shadow-hard">
+                    <i class="ph-fill ph-star text-3xl"></i>
+                </div>
+                <div class="absolute bottom-10 left-0 w-20 h-20 bg-jamie-coral rounded-lg transform rotate-12 border-2 border-jamie-dark z-20 flex items-center justify-center shadow-hard">
+                    <span class="font-display font-bold text-white text-xl">WOW!</span>
+                </div>
+
+                <!-- Main Image -->
+                <div class="relative w-80 h-80 sm:w-96 sm:h-96">
+                    <div class="absolute inset-0 bg-jamie-lavender blob-shape transform rotate-6 scale-105 opacity-50"></div>
+                    <div class="absolute inset-0 bg-jamie-teal blob-shape transform -rotate-3 scale-105 opacity-50"></div>
+                    <img 
+                        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                        alt="Jamie Collins" 
+                        class="relative w-full h-full object-cover blob-shape border-4 border-jamie-dark shadow-hard z-10"
+                    >
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scrolling Marquee -->
+    <div class="bg-jamie-dark py-4 transform -rotate-1 border-y-4 border-white overflow-hidden">
+        <div class="whitespace-nowrap animate-scroll flex space-x-8">
+            <!-- Repeated content for marquee effect -->
+             <span class="text-white font-display font-bold text-2xl uppercase">★ Illustration</span>
+             <span class="text-jamie-yellow font-display font-bold text-2xl uppercase">★ Branding</span>
+             <span class="text-jamie-coral font-display font-bold text-2xl uppercase">★ UI Design</span>
+             <span class="text-jamie-teal font-display font-bold text-2xl uppercase">★ Posters</span>
+             <span class="text-jamie-lavender font-display font-bold text-2xl uppercase">★ Packaging</span>
+             <span class="text-white font-display font-bold text-2xl uppercase">★ Illustration</span>
+             <span class="text-jamie-yellow font-display font-bold text-2xl uppercase">★ Branding</span>
+             <span class="text-jamie-coral font-display font-bold text-2xl uppercase">★ UI Design</span>
+             <span class="text-jamie-teal font-display font-bold text-2xl uppercase">★ Posters</span>
+             <span class="text-jamie-lavender font-display font-bold text-2xl uppercase">★ Packaging</span>
+             <span class="text-white font-display font-bold text-2xl uppercase">★ Illustration</span>
+             <span class="text-jamie-yellow font-display font-bold text-2xl uppercase">★ Branding</span>
+             <span class="text-jamie-coral font-display font-bold text-2xl uppercase">★ UI Design</span>
+             <span class="text-jamie-teal font-display font-bold text-2xl uppercase">★ Posters</span>
+             <span class="text-jamie-lavender font-display font-bold text-2xl uppercase">★ Packaging</span>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-4 sm:px-6 relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <!-- Sticky Notes/Tags visual -->
+                <div class="relative h-[400px] hidden md:block">
+                    <div class="absolute top-10 left-10 w-64 p-6 bg-jamie-yellow border-2 border-jamie-dark transform -rotate-6 shadow-hard z-10 hover:rotate-0 transition-transform duration-300">
+                        <div class="w-8 h-2 bg-jamie-dark/10 mx-auto mb-4 absolute top-2 left-1/2 -translate-x-1/2 tape"></div>
+                        <h3 class="font-hand text-2xl mb-2">My Toolkit</h3>
+                        <ul class="font-display text-lg space-y-1">
+                            <li>• Adobe Illustrator</li>
+                            <li>• Procreate</li>
+                            <li>• Figma</li>
+                            <li>• Coffee ☕</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="absolute top-40 right-10 w-60 p-6 bg-jamie-coral border-2 border-jamie-dark transform rotate-3 shadow-hard z-20 hover:rotate-0 transition-transform duration-300">
+                         <div class="w-8 h-2 bg-jamie-dark/10 mx-auto mb-4 absolute top-2 left-1/2 -translate-x-1/2 tape"></div>
+                        <h3 class="font-hand text-2xl mb-2">Vibes</h3>
+                        <p class="font-sans font-medium">Bold, Colorful, Expressive, Fun, Authentic.</p>
+                    </div>
+
+                    <div class="absolute bottom-10 left-20 w-56 p-6 bg-jamie-teal border-2 border-jamie-dark transform -rotate-3 shadow-hard z-30 hover:rotate-0 transition-transform duration-300">
+                         <div class="w-8 h-2 bg-jamie-dark/10 mx-auto mb-4 absolute top-2 left-1/2 -translate-x-1/2 tape"></div>
+                        <h3 class="font-hand text-2xl mb-2">London Based</h3>
+                        <p class="font-sans font-medium">Available for remote work worldwide! 🌍</p>
+                    </div>
+                </div>
+
+                <!-- Text Info -->
+                <div>
+                    <span class="inline-block px-3 py-1 bg-jamie-lavender border-2 border-jamie-dark rounded-full font-bold text-xs uppercase tracking-wider mb-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">Who Am I?</span>
+                    <h2 class="font-display font-bold text-4xl md:text-5xl mb-6">Hey! I’m Jamie.</h2>
+                    <p class="text-xl text-gray-700 leading-relaxed mb-6 font-medium">
+                        I’m a graphic designer and illustrator who loves turning ideas into <span class="bg-jamie-yellow px-1 border-b-2 border-jamie-dark">bold, playful visuals.</span>
+                    </p>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-8">
+                        I work with brands that want to stand out and have fun doing it. Whether it's a quirky juice label or a full startup identity, I bring a handcrafted feel to the digital world.
+                    </p>
+
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 bg-white border-2 border-jamie-dark rounded-lg font-bold shadow-card transform hover:-translate-y-1 hover:rotate-2 transition-all cursor-default">🎨 Illustration</span>
+                        <span class="px-4 py-2 bg-white border-2 border-jamie-dark rounded-lg font-bold shadow-card transform hover:-translate-y-1 hover:-rotate-2 transition-all cursor-default">⚡ Branding</span>
+                        <span class="px-4 py-2 bg-white border-2 border-jamie-dark rounded-lg font-bold shadow-card transform hover:-translate-y-1 hover:rotate-1 transition-all cursor-default">🖼️ Poster Design</span>
+                        <span class="px-4 py-2 bg-white border-2 border-jamie-dark rounded-lg font-bold shadow-card transform hover:-translate-y-1 hover:-rotate-1 transition-all cursor-default">📱 Social Media</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-16 bg-jamie-dark text-white skew-y-1">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 -skew-y-1">
+            <h2 class="font-display font-bold text-3xl md:text-4xl text-center mb-12 text-jamie-yellow">How I Can Help</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service Card 1 -->
+                <div class="bg-jamie-bg text-jamie-dark p-6 rounded-xl border-2 border-black shadow-[6px_6px_0px_0px_#A084E8] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-default">
+                    <div class="text-4xl mb-4">🎨</div>
+                    <h3 class="font-display font-bold text-xl mb-2">Brand Identity</h3>
+                    <p class="text-sm font-medium opacity-80">Logos, color palettes, and visual systems that pop.</p>
+                </div>
+                <!-- Service Card 2 -->
+                <div class="bg-jamie-bg text-jamie-dark p-6 rounded-xl border-2 border-black shadow-[6px_6px_0px_0px_#4DCCBD] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-default">
+                    <div class="text-4xl mb-4">✏️</div>
+                    <h3 class="font-display font-bold text-xl mb-2">Illustration</h3>
+                    <p class="text-sm font-medium opacity-80">Custom characters, icons, and editorial art.</p>
+                </div>
+                <!-- Service Card 3 -->
+                <div class="bg-jamie-bg text-jamie-dark p-6 rounded-xl border-2 border-black shadow-[6px_6px_0px_0px_#FF8484] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-default">
+                    <div class="text-4xl mb-4">🖼️</div>
+                    <h3 class="font-display font-bold text-xl mb-2">Print & Posters</h3>
+                    <p class="text-sm font-medium opacity-80">Event flyers, packaging, and merch design.</p>
+                </div>
+                <!-- Service Card 4 -->
+                <div class="bg-jamie-bg text-jamie-dark p-6 rounded-xl border-2 border-black shadow-[6px_6px_0px_0px_#FFD93D] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-default">
+                    <div class="text-4xl mb-4">📱</div>
+                    <h3 class="font-display font-bold text-xl mb-2">Social Media</h3>
+                    <p class="text-sm font-medium opacity-80">Templates and graphics to keep your feed fresh.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="work" class="py-24 px-4 sm:px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="font-hand text-jamie-coral text-2xl rotate-[-4deg] inline-block mb-2">Check this out!</span>
+                <h2 class="font-display font-bold text-5xl md:text-6xl text-jamie-dark">Selected Works</h2>
+            </div>
+
+            <!-- Masonry-ish Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
+                
+                <!-- Project 1 -->
+                <div class="group relative rotate-card cursor-pointer">
+                    <div class="bg-jamie-yellow p-4 pb-12 border-2 border-jamie-dark rounded-2xl shadow-hard transition-all duration-300">
+                        <div class="overflow-hidden rounded-xl border-2 border-jamie-dark aspect-[4/3] bg-white">
+                            <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=800&q=80" alt="Poster" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="absolute bottom-6 left-6 right-6 flex justify-between items-end">
+                            <div>
+                                <h3 class="font-display font-bold text-2xl mt-4">Playground Posters</h3>
+                                <p class="font-medium text-sm opacity-80">Event Design</p>
+                            </div>
+                            <div class="w-10 h-10 bg-white border-2 border-jamie-dark rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                <i class="ph-bold ph-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 (Offset top) -->
+                <div class="group relative rotate-card cursor-pointer md:mt-16">
+                    <div class="bg-jamie-teal p-4 pb-12 border-2 border-jamie-dark rounded-2xl shadow-hard transition-all duration-300">
+                        <div class="overflow-hidden rounded-xl border-2 border-jamie-dark aspect-[4/3] bg-white">
+                            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=80" alt="Packaging" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="absolute bottom-6 left-6 right-6 flex justify-between items-end">
+                            <div>
+                                <h3 class="font-display font-bold text-2xl mt-4">Juice Brand Pkg</h3>
+                                <p class="font-medium text-sm opacity-80">Packaging & Illustration</p>
+                            </div>
+                            <div class="w-10 h-10 bg-white border-2 border-jamie-dark rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                <i class="ph-bold ph-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="group relative rotate-card cursor-pointer">
+                    <div class="bg-jamie-coral p-4 pb-12 border-2 border-jamie-dark rounded-2xl shadow-hard transition-all duration-300">
+                        <div class="overflow-hidden rounded-xl border-2 border-jamie-dark aspect-[4/3] bg-white">
+                            <img src="https://images.unsplash.com/photo-1544256718-3bcf237f3974?auto=format&fit=crop&w=800&q=80" alt="Children's Book" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="absolute bottom-6 left-6 right-6 flex justify-between items-end">
+                            <div>
+                                <h3 class="font-display font-bold text-2xl mt-4">The Lost Star</h3>
+                                <p class="font-medium text-sm opacity-80">Children's Illustration</p>
+                            </div>
+                            <div class="w-10 h-10 bg-white border-2 border-jamie-dark rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                <i class="ph-bold ph-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 (Offset top) -->
+                <div class="group relative rotate-card cursor-pointer md:mt-16">
+                    <div class="bg-jamie-lavender p-4 pb-12 border-2 border-jamie-dark rounded-2xl shadow-hard transition-all duration-300">
+                        <div class="overflow-hidden rounded-xl border-2 border-jamie-dark aspect-[4/3] bg-white">
+                            <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=800&q=80" alt="Brand Kit" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="absolute bottom-6 left-6 right-6 flex justify-between items-end">
+                            <div>
+                                <h3 class="font-display font-bold text-2xl mt-4">Rocket Startup</h3>
+                                <p class="font-medium text-sm opacity-80">Brand Kit & Identity</p>
+                            </div>
+                            <div class="w-10 h-10 bg-white border-2 border-jamie-dark rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                <i class="ph-bold ph-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="text-center mt-16">
+                <a href="#" class="inline-block px-8 py-4 bg-white text-jamie-dark font-display font-bold text-lg rounded-full border-2 border-jamie-dark shadow-hard transition-all hover:-translate-y-1 hover:shadow-hard-hover hover:bg-gray-50">
+                    See More on Dribbble
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-4 sm:px-6 relative overflow-hidden">
+        <!-- Decoration -->
+        <div class="absolute top-10 left-10 text-9xl opacity-5 pointer-events-none hidden md:block">✎</div>
+        <div class="absolute bottom-10 right-10 text-9xl opacity-5 pointer-events-none hidden md:block">✉️</div>
+
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <h2 class="font-hand text-5xl md:text-6xl mb-6 transform -rotate-2 text-jamie-dark">Got a fun idea?</h2>
+            <h3 class="font-display font-bold text-4xl md:text-5xl mb-8">Let’s design it together.</h3>
+            
+            <div class="bg-white p-8 md:p-12 rounded-[2rem] border-2 border-jamie-dark shadow-hard inline-block max-w-2xl w-full transform rotate-1 hover:rotate-0 transition-transform duration-300">
+                <p class="text-lg text-gray-600 mb-8">I'm currently open for new projects! Drop me a line if you want to make something cool.</p>
+                
+                <a href="mailto:jamie.collins.design@email.com" class="block w-full py-4 bg-jamie-yellow border-2 border-jamie-dark rounded-xl font-display font-bold text-xl hover:bg-yellow-400 transition-colors shadow-card hover:translate-y-[2px] hover:shadow-none mb-6">
+                    jamie.collins.design@email.com
+                </a>
+                
+                <div class="flex justify-center space-x-6">
+                    <a href="https://www.instagram.com" class="flex flex-col items-center group">
+                        <div class="w-12 h-12 bg-jamie-dark text-white rounded-full flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                            <i class="ph-bold ph-instagram-logo"></i>
+                        </div>
+                        <span class="text-sm font-bold mt-2">@jamiecreates</span>
+                    </a>
+                    <a href="https://www.Dribbble.com" class="flex flex-col items-center group">
+                        <div class="w-12 h-12 bg-jamie-coral text-white rounded-full flex items-center justify-center text-2xl border-2 border-jamie-dark group-hover:scale-110 transition-transform">
+                            <i class="ph-bold ph-dribbble-logo"></i>
+                        </div>
+                        <span class="text-sm font-bold mt-2">Dribbble</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-jamie-dark text-white py-8 border-t-4 border-jamie-yellow">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="font-display text-lg">
+                Made By <a href="https://www.facebook.com/profile.php?id=100063808086007"><u>OcaByte.</u></a>
+            </p>
+            <p class="text-sm opacity-50 mt-2 font-sans">© 2024 Jamie Collins Design. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Marquee Animation Fix
+        // Adding stylesheet rule for animation if needed, though Tailwind mostly covers it.
+        const styleSheet = document.createElement("style");
+        styleSheet.innerText = `
+            @keyframes scroll {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+            .animate-scroll {
+                animation: scroll 20s linear infinite;
+            }
+        `;
+        document.head.appendChild(styleSheet);
+    </script>
+</body>
+</html>
